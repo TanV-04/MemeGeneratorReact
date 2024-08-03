@@ -1,0 +1,86 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-image: linear-gradient(to bottom right, #9762d5, #421dae);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 24px; 
+  padding: 20px;
+  justify-content: flex-end;
+}
+
+.header-img {
+  width: 80px; 
+  height: auto; 
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.header-title {
+  font-size: 24px; 
+  font-weight: bold;
+  color: white;
+  margin-right: auto;
+}
+
+.header-subtitle {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.memeButton {
+  background-image: linear-gradient(to bottom left, #9762d5, #421dae);
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  display: inline-block;
+  margin-right: 2px;
+  border-radius: 3px;
+  margin: 2px;
+  margin-top: 100px;
+}
+
+.memetext {
+  font-family: "Bangers", system-ui;
+  font-weight: 400;
+  font-size:5rem;
+  color: black;
+}
