@@ -16,7 +16,14 @@ function Meme() {
     randomImg: url, // url of the random meme image
   });
 
-  const [allMemeImages, setAllMemeImages] = React.useState(memesData); // state for storing all meme images
+  // access data from  an api
+  const [allMeme, setAllMeme] = React.useState([]); // state for storing all meme images
+
+  React.useEffect(function () {
+    fetch("https://api.imgflip.com/get_memes")
+      .then((res) => res.json())
+      .then((data) => setAllMeme(data.data.memes));
+  }, []); // we don't have any dependencies for this effect, so leave the array empty
 
   function handleChange(event) {
     event.preventDefault();
@@ -30,24 +37,33 @@ function Meme() {
 
   // function to fetch a random meme image
   function getMemeImage() {
-    const memesArray = memesData.data.memes; // Assuming memesData has a structure with 'data' property containing 'memes' array
-    const randomNumber = Math.floor(Math.random() * memesArray.length); // generate a random number using Math.random and round this number using Math.floor, ensuring that randomNumber is an integer within the range [0, memesArray.length-1].
-    // console.log(randomNumber); // and console.log this number
-    const url = memesArray[randomNumber].download_url; // Get the download URL of the randomly selected meme image
-    // setMemeImage(url);
+    // const memesArray = memesData.data.memes; // Assuming memesData has a structure with 'data' property containing 'memes' array
+    // const randomNumber = Math.floor(Math.random() * memesArray.length); // generate a random number using Math.random and round this number using Math.floor, ensuring that randomNumber is an integer within the range [0, memesArray.length-1].
+    // // console.log(randomNumber); // and console.log this number
+    // const url = memesArray[randomNumber].download_url; // Get the download URL of the randomly selected meme image
+    // // setMemeImage(url);
 
-    setMeme((prevUrl) => {
-      // Update meme state with the new random image URL
-      return {
-        ...prevUrl,
-        // or
-        // topText: "", // initial top text of the meme
-        // bottomText: "", // initial bottom text of the meme
-        // randomImg: url, // url of the random meme image
-        randomImg: url,
-      };
-    });
+    // setMeme((prevUrl) => {
+    //   // Update meme state with the new random image URL
+    //   return {
+    //     ...prevUrl,
+    //     // or
+    //     // topText: "", // initial top text of the meme
+    //     // bottomText: "", // initial bottom text of the meme
+    //     // randomImg: url, // url of the random meme image
+    //     randomImg: url,
+    //   };
+    // });
     // console.log(url);
+
+    if (allMeme.length > 0) {
+      const randomNumber = Math.floor(Math.random() * allMeme.length);
+      const url = allMeme[randomNumber].url;
+      setMeme((prevState) => ({
+        ...prevState,
+        randomImg: url,
+      }));
+    }
   }
 
   // function handleOnMouseOver() {

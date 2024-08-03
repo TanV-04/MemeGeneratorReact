@@ -15,7 +15,7 @@ export default function DownloadButton({ imgSrc, topText, bottomText }) {
 
       ctx.drawImage(img, 0, 0);
 
-      ctx.font = "bold 20rem Bangers";
+      ctx.font = "bold 4rem Bangers";
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
       ctx.strokeStyle = "white";
@@ -23,8 +23,8 @@ export default function DownloadButton({ imgSrc, topText, bottomText }) {
       ctx.textBaseline = "middle";
 
       // Draw top text
-      const topTextMargin = 90; // Margin from the top
-      const bottomTextMargin = 90; // Margin from the bottom
+      const topTextMargin = 60; // Margin from the top
+      const bottomTextMargin = 60; // Margin from the bottom
 
       // Draw top text with margin
       ctx.strokeText(topText, canvas.width / 2, topTextMargin);
